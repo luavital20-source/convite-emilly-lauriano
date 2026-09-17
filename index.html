@@ -327,7 +327,9 @@
   @keyframes eq{0%,100%{height:4px}50%{height:14px}}
 
   @media(max-width:380px){.inner{padding:0 24px}.qf .v{font-size:17px}}
-  @media(min-width:760px){.hero-photo{height:82vh;min-height:560px}.hero-photo img{object-position:50% 40%;}}
+  /* telas largas: a foto (retrato) recorta na vertical, então subimos o
+     enquadramento para os rostos do casal não ficarem cortados no topo */
+  @media(min-width:760px){.hero-photo{height:82vh;min-height:560px}.hero-photo img{object-position:50% 12%;}}
 </style>
 </head>
 <body>

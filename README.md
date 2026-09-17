@@ -12,33 +12,38 @@ Basta abrir o `index.html` no navegador — não precisa instalar nada.
 ```
 index.html          → o convite inteiro (textos, estilos e funcionamento)
 assets/
-  textura.jpg       → textura de papel do fundo (já incluída)
-  monograma.png     → ⬅️ SUBIR o monograma do casal (PNG com fundo transparente)
+  textura.jpg       → textura de papel do fundo ✅
+  monograma.png     → ⬅️ FALTA subir o monograma (PNG com fundo transparente)
   musica.mp3        → (opcional) música de reserva, caso o YouTube não abra
 fotos/
-  capa.jpg          → ⬅️ SUBIR a foto principal do casal (aparece no topo)
-  local.jpg         → ⬅️ SUBIR a foto do Imperial Pallace Buffet
+  capa.jpg          → foto do casal, no topo do convite ✅
+  local.jpg         → ⬅️ FALTA subir a foto do Imperial Pallace Buffet
 presentes/
-  01.jpg … 15.jpg   → ⬅️ SUBIR as fotos das 15 cotas de presente
+  01.jpg … 15.jpg   → fotos das 15 cotas de presente ✅
 ```
 
 > Se alguma imagem ainda não existir, o convite **não quebra**: ele mostra um
-> fundo em degradê no lugar da foto e segue funcionando normalmente.
+> fundo em degradê no lugar da foto e segue funcionando normalmente. É o caso
+> da foto do buffet e do monograma, que ainda não foram enviados.
 
 ---
 
-## 🖼️ Como subir as fotos
+## 🖼️ Fotos
 
-Os nomes dos arquivos precisam ser **exatamente** estes (tudo em minúsculo):
+As fotos enviadas já foram tratadas e colocadas no lugar certo. As fotos das
+cotas foram montadas **inteiras** sobre um fundo desfocado delas mesmas, em vez
+de recortadas: várias eram bem largas e o recorte cortaria a piada no meio
+(os dois sapatinhos do "menino ou menina", a coroa, a mesa do buffet).
+
+Ainda faltam duas, e o convite funciona normalmente sem elas:
 
 | Arquivo | O que é | Formato sugerido |
 |---|---|---|
-| `fotos/capa.jpg` | foto do casal (topo do convite) | vertical, 1200×1600 px |
-| `fotos/local.jpg` | foto do buffet | horizontal, 1200×800 px |
+| `fotos/local.jpg` | foto do Imperial Pallace Buffet | horizontal, 1200×800 px |
 | `assets/monograma.png` | monograma do casal | PNG transparente, ~800 px de largura |
-| `presentes/01.jpg` … `presentes/15.jpg` | fotos das cotas | quadrada ou 4:5, 800×1000 px |
 
-A numeração das fotos de presente segue **a mesma ordem da lista** abaixo.
+Para trocar uma foto depois, basta substituir o arquivo mantendo o mesmo nome
+(tudo em minúsculo). A numeração das cotas segue a ordem da lista abaixo.
 
 ---
 
