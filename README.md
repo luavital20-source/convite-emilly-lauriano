@@ -47,24 +47,51 @@ Para trocar uma foto depois, basta substituir o arquivo mantendo o mesmo nome
 
 ---
 
-## ⚙️ O que ainda falta preencher
+## 💳 Pagamentos e o que falta preencher
 
 Tudo o que precisa ser editado está no topo do `<script>`, no bloco `CONFIG`
-do `index.html` (por volta da linha 470). Os três itens pendentes:
+do `index.html`:
 
-1. **`pixChave`** — a chave Pix que vai receber os presentes.
-   Enquanto estiver vazia, os cartões de presente aparecem **sem** o botão de Pix.
+1. **`infinitePayTag`** — ✅ já preenchida com `rumadevideos` (a InfiniteTag da
+   conta **RUMA DE VIDEOS**, Conta Lojista CNPJ). O botão **Cartão** de cada cota
+   já monta sozinho o link de pagamento com o valor daquela cota:
+   `https://pay.infinitepay.io/rumadevideos/500,00/`
+
+   > ⚠️ **Teste um link antes de enviar o convite.** Abra o convite, toque em
+   > *Cartão* em qualquer cota e confira se o checkout da InfinitePay abre com o
+   > **valor certo**. Se abrir com o valor errado (R$ 5,00 em vez de R$ 500,00,
+   > por exemplo), é só trocar no `CONFIG` a linha
+   > `infinitePayFormatoValor: 'reais'` para `'centavos'`. É a única mudança
+   > necessária — os 15 links se ajustam juntos.
+
+   **Para saber qual cota foi paga:** o link automático leva só o valor, e várias
+   cotas têm o mesmo preço (R$ 500 aparece duas vezes, R$ 350 duas, R$ 250 duas,
+   R$ 300 duas, R$ 400 duas). Ou seja, no extrato não dá para distinguir uma da
+   outra. Se isso importar, gere os 15 links no app da InfinitePay (lá você
+   escreve a descrição, ex.: *"Cota 01 — Mounjaro da Noiva"*) e cole cada um na
+   cota correspondente, dentro de `PRESENTES`:
+
+   ```js
+   { id:1, nome:'Mounjaro da Noiva', ..., linkCartao:'https://pay.infinitepay.io/...' },
+   ```
+
+   O `linkCartao` tem prioridade sobre o link automático. Dá para fazer só em
+   algumas cotas — as que não tiverem continuam usando o link automático.
+
+2. **`pixChave`** — a chave Pix que vai receber os presentes.
+   Enquanto estiver vazia, os cartões aparecem só com o botão **Cartão**
+   (o Pix é opcional — o cartão já funciona sozinho).
    Ao preencher, cada cota gera sozinha o código *Pix copia e cola* já com o valor.
    Escreva a chave no formato do banco: CPF só com números (`'12345678900'`),
    telefone com `+55` e DDD (`'+5585999998888'`), e-mail em minúsculo, ou a
    chave aleatória como o banco mostra. Ela aparece no convite exatamente assim.
    Preencha também `pixBanco` (ex.: `'Banco Itaú'`) e confira `pixTitular`.
 
-2. **`whatsapp`** — o número que vai receber as confirmações,
+3. **`whatsapp`** — o número que vai receber as confirmações,
    no formato `55` + DDD + número (ex.: `'5585999999999'`).
    Enquanto estiver vazio, a seção *Confirmação de presença* fica escondida.
 
-3. **`mapCerimonia` / `mapRecepcao`** — *(opcional)* o link curto do Google Maps
+4. **`mapCerimonia` / `mapRecepcao`** — *(opcional)* o link curto do Google Maps
    do buffet. Se ficarem vazios, o botão "Ver no mapa" abre a busca pelo
    endereço, que já funciona.
 
@@ -83,7 +110,8 @@ do `index.html` (por volta da linha 470). Os três itens pendentes:
   escrever. A nossa, porém, foi escrita pelas mãos do Senhor."
 - **Dress code:** esporte fino, com orientações para damas e homens
 - **Manual dos convidados:** 8 tópicos em lista sanfonada
-- **Lista de presentes:** 15 cotas
+- **Lista de presentes:** 15 cotas, com pagamento no cartão via InfinitePay
+  (crédito parcelado, Google Pay e Apple Pay) — sem precisar de servidor
 
 ### As 15 cotas
 
