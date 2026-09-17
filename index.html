@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Emilly &amp; Lauriano — Casamento</title>
+<meta name="description" content="Convite do casamento de Emilly e Lauriano — 31 de Janeiro de 2027, Fortaleza/CE.">
+<meta name="theme-color" content="#FAF7F2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,400;1,6..96,500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* Paleta — Azul Serenity */
+    --blue:#91A8D0;
+    --blue-deep:#5F7BAD;
+    --blue-soft:#C6D3E9;
+    --sage:#DCE4F2;
+    --sage-deep:#4C6699;
+    --paper:#FAF7F2;
+    --paper-2:#F2ECF4;
+    --ink:#2A3138;
+    --ink-soft:#515A62;
+    --line:#E2E8DA;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;overflow-x:hidden;overscroll-behavior-x:none;}
+  body{
+    background:var(--paper);
+    color:var(--ink-soft);
+    font-family:'Jost',sans-serif;font-weight:300;
+    overflow-x:hidden;position:relative;
+  }
+  /* textura de papel */
+  body::before{
+    content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+    background-image:url('assets/textura.jpg');background-size:cover;
+    opacity:.5;mix-blend-mode:multiply;
+  }
+  img{display:block;max-width:100%;}
+
+  /* monograma (arquivo assets/monograma.png — some sozinho se não existir) */
+  .mono{display:block;margin:0 auto;width:74px;height:auto;opacity:.92;}
+
+  /* ───────── SPLASH ───────── */
+  #splash{
+    position:fixed;inset:0;z-index:1000;background:var(--paper);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    cursor:pointer;overflow:hidden;
+    transition:opacity 1s ease, transform 1s ease;
+  }
+  #splash::after{content:'';position:absolute;inset:0;background-image:url('assets/textura.jpg');background-size:cover;opacity:.5;mix-blend-mode:multiply;pointer-events:none;}
+  #splash.hide{opacity:0;pointer-events:none;transform:scale(1.04);}
+  .splash-inner{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;padding:0 24px;}
+  .splash-mono{width:88px;opacity:0;animation:fadeUp 1s .2s forwards;}
+  .splash-names{
+    font-family:'Bodoni Moda',serif;font-weight:400;
+    font-size:clamp(38px,11.5vw,66px);line-height:.96;color:var(--ink);
+    text-align:center;margin-top:26px;letter-spacing:.01em;
+    opacity:0;animation:fadeUp 1s .55s forwards;
+  }
+  .splash-names .amp{font-style:italic;color:var(--blue);font-weight:400;display:block;font-size:.5em;margin:.06em 0;}
+  .splash-date{
+    margin-top:22px;font-size:12px;font-weight:300;letter-spacing:.55em;
+    color:var(--blue-deep);text-indent:.55em;opacity:0;animation:fadeUp 1s .85s forwards;text-align:center;
+  }
+  .splash-hint{
+    position:absolute;bottom:54px;z-index:2;font-size:15px;letter-spacing:.32em;
+    text-transform:uppercase;color:var(--blue-deep);font-weight:400;opacity:0;
+    animation:pulse 2.6s 1.6s infinite;text-indent:.32em;
+    border:1px solid var(--blue-soft);padding:14px 30px;border-radius:40px;
+  }
+
+  /* ───────── MAIN ───────── */
+  #main{display:none;position:relative;z-index:1;}
+  #main.visible{display:block;}
+  .wrap{max-width:540px;margin:0 auto;position:relative;}
+  section{position:relative;}
+  .inner{padding:0 34px;}
+  .sec-label{
+    font-size:10.5px;letter-spacing:.45em;text-transform:uppercase;
+    color:var(--blue-deep);text-align:center;text-indent:.45em;
+  }
+  .sec-title{
+    font-family:'Bodoni Moda',serif;font-weight:400;
+    font-size:clamp(28px,8vw,40px);color:var(--ink);text-align:center;
+    line-height:1.08;margin-top:12px;
+  }
+  .sec-title .it{font-style:italic;color:var(--blue);}
+  .divider{display:flex;align-items:center;justify-content:center;gap:14px;margin:22px auto 0;max-width:230px;}
+  .divider .ln{height:1px;flex:1;background:linear-gradient(90deg,transparent,var(--line));}
+  .divider .ln.r{background:linear-gradient(90deg,var(--line),transparent);}
+  .divider .dot{width:5px;height:5px;border:1px solid var(--blue);transform:rotate(45deg);}
+
+  /* ───────── HERO ───────── */
+  .hero{padding-top:0;}
+  .hero-photo{
+    position:relative;width:100vw;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;
+    height:58vh;min-height:400px;max-height:680px;overflow:hidden;
+    background:linear-gradient(170deg,var(--sage) 0%,var(--blue-soft) 45%,var(--paper-2) 100%);
+    -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 50%,rgba(0,0,0,.55) 73%,rgba(0,0,0,0) 95%);
+            mask-image:linear-gradient(to bottom,#000 0%,#000 50%,rgba(0,0,0,.55) 73%,rgba(0,0,0,0) 95%);
+  }
+  .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;filter:saturate(.9) contrast(.97);}
+  .hero-photo::before{
+    content:'';position:absolute;inset:0;z-index:1;
+    background:linear-gradient(180deg, rgba(117,137,176,.08) 0%, rgba(117,137,176,0) 24%, rgba(194,203,190,.05) 100%);
+  }
+  .hero-cap{position:relative;z-index:2;text-align:center;padding:0 28px;margin-top:-86px;}
+  .hero-mono{width:62px;margin:0 auto 18px;}
+  .hero-names{
+    font-family:'Bodoni Moda',serif;font-weight:400;color:var(--ink);
+    font-size:clamp(38px,12vw,70px);line-height:.92;letter-spacing:.005em;
+  }
+  .hero-names .amp{display:block;font-style:italic;color:var(--blue);font-size:.46em;margin:.04em 0;}
+  .hero-sub{margin-top:18px;font-size:11.5px;letter-spacing:.4em;text-transform:uppercase;color:var(--blue-deep);text-indent:.4em;}
+
+  /* ───────── VERSE ───────── */
+  #verse{padding:74px 0 64px;text-align:center;}
+  .verse-q{
+    font-family:'Bodoni Moda',serif;font-style:italic;font-weight:400;
+    font-size:clamp(19px,5vw,25px);line-height:1.6;color:var(--ink);
+    max-width:430px;margin:0 auto;
+  }
+  .verse-ref{margin-top:24px;font-size:10.5px;letter-spacing:.4em;text-transform:uppercase;color:var(--sage-deep);text-indent:.4em;}
+
+  /* ───────── DAY / LOCAIS ───────── */
+  #day{padding:18px 0 8px;}
+  .quickfacts{display:flex;justify-content:center;gap:0;margin:40px 0 8px;}
+  .qf{flex:1;text-align:center;padding:0 8px;}
+  .qf + .qf{border-left:1px solid var(--line);}
+  .qf .k{font-size:9.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--blue-deep);}
+  .qf .v{font-family:'Bodoni Moda',serif;font-size:19px;color:var(--ink);margin-top:9px;line-height:1.25;}
+  .qf .v small{display:block;font-family:'Jost';font-size:11px;letter-spacing:.04em;color:var(--ink-soft);margin-top:3px;}
+
+  .place{margin-top:52px;}
+  .place-art{position:relative;width:100%;overflow:hidden;border-radius:18px;}
+  .place-art img{width:100%;height:auto;}
+  .place-tag{
+    display:inline-block;font-size:10px;letter-spacing:.42em;text-transform:uppercase;
+    color:#fff;background:var(--blue-deep);padding:7px 16px;text-indent:.42em;
+  }
+  .place-body{text-align:center;margin-top:22px;}
+  .place-time{font-family:'Bodoni Moda',serif;font-style:italic;font-size:24px;color:var(--blue);}
+  .place-name{font-family:'Bodoni Moda',serif;font-size:23px;color:var(--ink);margin-top:8px;line-height:1.25;}
+  .place-addr{font-size:13px;line-height:1.7;color:var(--ink-soft);margin-top:12px;max-width:360px;margin-left:auto;margin-right:auto;}
+  .btn-line{
+    display:inline-flex;align-items:center;gap:9px;margin-top:20px;
+    font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--ink);
+    border:1px solid var(--ink);padding:12px 24px;text-decoration:none;text-indent:.26em;
+    transition:.35s;background:transparent;
+  }
+  .btn-line:hover{background:var(--ink);color:var(--paper);}
+  .btn-line svg{width:13px;height:13px;}
+  .place-divider{width:1px;height:60px;background:linear-gradient(var(--line),transparent,var(--line));margin:50px auto 0;}
+
+  .sprig{position:absolute;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 320' fill='none' stroke='%235F7BAD' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M60 6 C56 60 62 130 59 210 C57 258 60 292 60 314'/%3E%3Cg fill='%23C6D3E9' fill-opacity='.5'%3E%3Cpath d='M59 42 C44 34 30 36 22 48 C36 52 50 52 59 42 Z'/%3E%3Cpath d='M60 66 C75 58 89 60 97 72 C83 76 69 76 60 66 Z'/%3E%3Cpath d='M59 104 C42 96 27 99 19 112 C34 116 50 115 59 104 Z'/%3E%3Cpath d='M60 132 C77 124 92 127 100 140 C85 144 69 143 60 132 Z'/%3E%3Cpath d='M59 176 C45 169 32 171 25 182 C38 186 51 185 59 176 Z'/%3E%3Cpath d='M60 202 C74 195 87 197 94 208 C81 212 68 211 60 202 Z'/%3E%3Cpath d='M59 244 C47 238 36 240 30 250 C41 253 52 252 59 244 Z'/%3E%3C/g%3E%3Ccircle cx='60' cy='6' r='2.4' fill='%2391A8D0' stroke='none'/%3E%3C/svg%3E") center/contain no-repeat;pointer-events:none;z-index:1;}
+
+  /* ───────── COUNTDOWN ───────── */
+  #countdown{padding:78px 0;text-align:center;}
+  .cd-wrap{display:flex;justify-content:center;gap:0;margin-top:40px;}
+  .cd-unit{flex:1;max-width:90px;}
+  .cd-unit + .cd-unit{border-left:1px solid var(--line);}
+  .cd-num{font-family:'Bodoni Moda',serif;font-weight:400;font-size:clamp(34px,11vw,48px);color:var(--ink);line-height:1;display:block;}
+  .cd-lbl{font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--blue-deep);margin-top:10px;display:block;}
+
+  /* ───────── DRESS CODE ───────── */
+  #dress{padding:58px 0;text-align:center;}
+  .dress-icon{width:34px;height:34px;margin:30px auto 0;color:var(--blue);}
+  .dress-main{font-family:'Bodoni Moda',serif;font-style:italic;font-size:26px;color:var(--ink);margin-top:22px;}
+  .dress-note{font-size:13.5px;line-height:1.8;color:var(--ink-soft);max-width:400px;margin:14px auto 0;}
+  .dress-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:32px;text-align:left;}
+  .dcard{border:1px solid var(--line);background:rgba(255,255,255,.55);border-radius:16px;padding:18px 16px;}
+  .dcard .dk{font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--blue-deep);text-indent:.3em;}
+  .dcard .dv{font-size:12.5px;line-height:1.7;color:var(--ink-soft);margin-top:10px;}
+  .dcard .dv strong{color:var(--ink);font-weight:400;}
+  @media(max-width:400px){.dress-cards{grid-template-columns:1fr;}}
+
+  /* ───────── MANUAL DOS CONVIDADOS ───────── */
+  #manual{padding:58px 0;}
+  .man-list{margin-top:34px;border-top:1px solid var(--line);}
+  .man-item{border-bottom:1px solid var(--line);}
+  .man-head{
+    width:100%;display:flex;align-items:center;gap:14px;
+    background:transparent;border:0;cursor:pointer;text-align:left;
+    padding:18px 4px;font-family:'Jost',sans-serif;color:var(--ink);
+  }
+  .man-head .mi{width:20px;height:20px;flex-shrink:0;color:var(--blue-deep);}
+  .man-head .mt{flex:1;font-size:14px;letter-spacing:.06em;font-weight:400;}
+  .man-head .mc{width:14px;height:14px;flex-shrink:0;color:var(--blue);transition:transform .35s;}
+  .man-item.open .man-head .mc{transform:rotate(45deg);}
+  .man-body{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.2,.6,.2,1);}
+  .man-body p{font-size:13px;line-height:1.85;color:var(--ink-soft);padding:0 4px 20px 38px;}
+  .man-body p strong{color:var(--ink);font-weight:400;}
+  .man-body p + p{padding-top:0;}
+
+  /* ───────── PRESENTES ───────── */
+  #gifts{padding:58px 0;text-align:center;}
+  .gift-note{font-size:13.5px;line-height:1.85;color:var(--ink-soft);max-width:400px;margin:26px auto 0;}
+  .btn-fill{
+    display:inline-flex;align-items:center;gap:10px;margin-top:28px;
+    font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--paper);
+    background:var(--blue-deep);padding:15px 30px;text-decoration:none;text-indent:.26em;
+    transition:.35s;border:1px solid var(--blue-deep);
+  }
+  .btn-fill:hover{background:transparent;color:var(--blue-deep);}
+  .btn-fill svg{width:14px;height:14px;}
+
+  .gift-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:40px;text-align:left;}
+  .gift-card{
+    display:flex;flex-direction:column;overflow:hidden;border-radius:16px;
+    border:1px solid var(--line);background:rgba(255,255,255,.55);
+    box-shadow:0 6px 18px rgba(92,111,149,.06);transition:transform .4s,box-shadow .4s;
+  }
+  .gift-card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(92,111,149,.14);}
+  .gift-photo{position:relative;aspect-ratio:4/5;overflow:hidden;background:linear-gradient(160deg,var(--sage),var(--paper-2));}
+  .gift-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.6,.2,1);}
+  .gift-card:hover .gift-photo img{transform:scale(1.06);}
+  .gift-photo.sem-foto::after{
+    content:'';position:absolute;inset:0;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60' fill='none' stroke='%235F7BAD' stroke-opacity='.45' stroke-width='1.1'%3E%3Cpath d='M30 44c-8-6-14-11-14-18a7 7 0 0 1 14-3 7 7 0 0 1 14 3c0 7-6 12-14 18z'/%3E%3C/svg%3E") center/38% no-repeat;
+  }
+  .gift-num{
+    position:absolute;top:9px;left:9px;z-index:2;
+    display:inline-flex;align-items:center;justify-content:center;min-width:26px;height:26px;padding:0 6px;
+    font-family:'Bodoni Moda',serif;font-size:12px;color:var(--paper);
+    background:rgba(95,123,173,.9);border-radius:20px;letter-spacing:.02em;
+  }
+  .gift-body{display:flex;flex-direction:column;flex:1;padding:14px 14px 16px;}
+  .gift-name{font-family:'Bodoni Moda',serif;font-size:15.5px;line-height:1.25;color:var(--ink);}
+  .gift-sub{font-size:11.5px;line-height:1.55;color:var(--ink-soft);margin-top:6px;flex:1;}
+  .gift-val{font-family:'Bodoni Moda',serif;font-style:italic;font-size:17px;color:var(--blue-deep);margin-top:12px;}
+  .gift-btns{display:flex;gap:8px;margin-top:14px;}
+  .gift-btns a,.gift-btns button{
+    flex:1;display:inline-flex;align-items:center;justify-content:center;gap:5px;
+    font-family:'Jost',sans-serif;font-size:9.5px;font-weight:300;letter-spacing:.16em;text-transform:uppercase;text-indent:.16em;
+    padding:10px 6px;border-radius:30px;text-decoration:none;transition:.3s;cursor:pointer;white-space:nowrap;
+  }
+  .gift-btns svg{width:12px;height:12px;flex-shrink:0;}
+  .gift-btns .gp{background:var(--blue-deep);color:var(--paper);border:1px solid var(--blue-deep);}
+  .gift-btns .gp:hover{background:transparent;color:var(--blue-deep);}
+  .gift-btns .gc{background:transparent;color:var(--blue-deep);border:1px solid var(--blue-soft);}
+  .gift-btns .gc:hover{background:var(--blue-deep);color:var(--paper);border-color:var(--blue-deep);}
+  .gift-btns button.is-loading{opacity:.65;cursor:wait;}
+  .gift-btns button.is-erro{border-color:#b4544f;color:#b4544f;}
+
+  /* ── Modal do Pix ── */
+  .pixm{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:24px;}
+  .pixm[hidden]{display:none;}
+  .pixm-bg{position:absolute;inset:0;background:rgba(42,49,56,.55);backdrop-filter:blur(3px);animation:pixFade .3s both;}
+  .pixm-card{
+    position:relative;width:100%;max-width:360px;max-height:90vh;overflow-y:auto;
+    background:var(--paper);border:1px solid var(--line);border-radius:20px;
+    padding:30px 26px 26px;text-align:center;
+    box-shadow:0 24px 60px rgba(42,49,56,.28);animation:pixUp .38s cubic-bezier(.2,.6,.2,1) both;
+  }
+  .pixm-x{
+    position:absolute;top:12px;right:12px;width:30px;height:30px;border-radius:50%;
+    border:1px solid var(--line);background:transparent;color:var(--ink-soft);
+    font-size:17px;line-height:1;cursor:pointer;transition:.3s;
+  }
+  .pixm-x:hover{background:var(--blue-deep);color:var(--paper);border-color:var(--blue-deep);}
+  .pixm-eyebrow{font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--blue-deep);text-indent:.3em;}
+  .pixm-nome{font-family:'Bodoni Moda',serif;font-size:19px;color:var(--ink);margin-top:10px;line-height:1.25;}
+  .pixm-valor{font-family:'Bodoni Moda',serif;font-style:italic;font-size:30px;color:var(--blue);margin-top:6px;}
+  .pixm-code{
+    margin-top:20px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;
+    background:rgba(255,255,255,.7);font-family:'Jost',sans-serif;font-size:10px;
+    color:var(--ink-soft);word-break:break-all;line-height:1.6;max-height:88px;overflow-y:auto;text-align:left;
+  }
+  .pixm-copiar{
+    display:inline-flex;align-items:center;justify-content:center;gap:9px;width:100%;margin-top:16px;
+    font-family:'Jost',sans-serif;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;text-indent:.24em;
+    color:var(--paper);background:var(--blue-deep);border:1px solid var(--blue-deep);
+    border-radius:34px;padding:14px 18px;cursor:pointer;transition:.3s;
+  }
+  .pixm-copiar:hover{background:transparent;color:var(--blue-deep);}
+  .pixm-copiar.copiado{background:var(--sage-deep);border-color:var(--sage-deep);color:#fff;}
+  .pixm-copiar svg{width:14px;height:14px;flex-shrink:0;}
+  .pixm-hint{font-size:11.5px;line-height:1.7;color:var(--ink-soft);margin-top:14px;}
+  .pixm-hint strong{color:var(--ink);font-weight:400;}
+  .pixm-chave{margin-top:18px;padding-top:16px;border-top:1px solid var(--line);font-size:11px;line-height:1.75;color:var(--ink-soft);}
+  .pixm-chave b{display:block;font-family:'Jost',sans-serif;font-weight:400;font-size:14px;color:var(--ink);letter-spacing:.06em;margin-top:3px;}
+  @keyframes pixFade{from{opacity:0}to{opacity:1}}
+  @keyframes pixUp{from{opacity:0;transform:translateY(24px) scale(.97)}to{opacity:1;transform:none}}
+  @media(max-width:360px){.gift-grid{gap:12px;}.gift-btns{flex-direction:column;}}
+
+  /* ───────── MÚSICA ───────── */
+  #music{padding:30px 0 8px;text-align:center;}
+  .music-row{display:inline-flex;align-items:center;gap:12px;color:var(--sage-deep);font-size:11px;letter-spacing:.32em;text-transform:uppercase;}
+  .music-row .bars{display:inline-flex;align-items:flex-end;gap:2px;height:14px;}
+  .music-row .bars i{width:2px;background:var(--blue);animation:eq 1s ease-in-out infinite;}
+  .music-row .bars i:nth-child(2){animation-delay:.2s}.music-row .bars i:nth-child(3){animation-delay:.4s}.music-row .bars i:nth-child(4){animation-delay:.1s}
+  #musicToggle{
+    position:fixed;right:16px;bottom:16px;z-index:900;
+    display:none;align-items:center;gap:9px;cursor:pointer;
+    background:var(--paper);border:1px solid var(--blue);color:var(--blue-deep);
+    border-radius:40px;padding:9px 16px 9px 13px;
+    box-shadow:0 8px 24px rgba(92,111,149,.22);transition:.3s;
+    font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:400;
+  }
+  #musicToggle:hover{background:var(--blue);color:#fff;border-color:var(--blue);}
+  #musicToggle svg{width:14px;height:14px;flex-shrink:0;}
+  #musicToggle .mt-label{white-space:nowrap;text-indent:.2em;}
+  #ytHost{position:fixed;width:1px;height:1px;left:-9999px;top:-9999px;opacity:0;pointer-events:none;}
+
+  /* ───────── RSVP ───────── */
+  #rsvp{padding:64px 0 44px;text-align:center;}
+  .rsvp-note{font-size:13.5px;line-height:1.85;color:var(--ink-soft);max-width:400px;margin:26px auto 0;}
+
+  /* ───────── FOOTER ───────── */
+  footer{padding:60px 30px 40px;text-align:center;}
+  .footer-mono{width:60px;margin:0 auto 22px;}
+  .footer-names{font-family:'Bodoni Moda',serif;font-size:30px;color:var(--ink);line-height:1;}
+  .footer-names .amp{font-style:italic;color:var(--blue);}
+  .footer-date{margin-top:14px;font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--blue-deep);text-indent:.4em;}
+  .footer-note{margin-top:18px;font-size:11.5px;letter-spacing:.04em;color:var(--sage-deep);font-style:italic;font-family:'Bodoni Moda',serif;line-height:1.6;}
+  .footer-credit{margin-top:30px;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:#b7b9b4;text-indent:.3em;}
+
+  /* ───────── REVEAL ───────── */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity 1s cubic-bezier(.2,.6,.2,1),transform 1s cubic-bezier(.2,.6,.2,1);}
+  .reveal.visible{opacity:1;transform:none;}
+  .reveal.d1{transition-delay:.12s}.reveal.d2{transition-delay:.24s}.reveal.d3{transition-delay:.36s}
+
+  @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+  @keyframes pulse{0%,100%{opacity:0}50%{opacity:.9}}
+  @keyframes eq{0%,100%{height:4px}50%{height:14px}}
+
+  @media(max-width:380px){.inner{padding:0 24px}.qf .v{font-size:17px}}
+  @media(min-width:760px){.hero-photo{height:82vh;min-height:560px}.hero-photo img{object-position:50% 40%;}}
+</style>
+</head>
+<body>
+
+<!-- ════════ SPLASH ════════ -->
+<div id="splash">
+  <span class="sprig" style="width:74px;height:198px;top:-24px;left:-6px;transform:rotate(-16deg);opacity:.5"></span>
+  <span class="sprig" style="width:88px;height:235px;bottom:-30px;right:-8px;transform:rotate(168deg);opacity:.5"></span>
+  <div class="splash-inner">
+    <img class="mono splash-mono" src="assets/monograma.png" alt="" onerror="this.remove()">
+    <h1 class="splash-names" id="splashNames"></h1>
+    <p class="splash-date" id="splashDate"></p>
+  </div>
+  <p class="splash-hint">toque para abrir</p>
+</div>
+
+<!-- ════════ MAIN ════════ -->
+<div id="main">
+ <div class="wrap">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-photo">
+      <img src="fotos/capa.jpg" alt="Emilly e Lauriano" onerror="this.remove()">
+    </div>
+    <div class="hero-cap">
+      <img class="mono hero-mono" src="assets/monograma.png" alt="" onerror="this.remove()">
+      <h2 class="hero-names" id="heroNames"></h2>
+      <p class="hero-sub" id="heroSub"></p>
+    </div>
+  </section>
+
+  <!-- VERSO / FRASE -->
+  <section id="verse">
+    <span class="sprig" style="width:52px;height:140px;top:-16px;right:0;transform:rotate(20deg);opacity:.3"></span>
+    <div class="inner">
+      <p class="verse-q reveal" id="verseText"></p>
+      <p class="verse-ref reveal d1" id="verseRef"></p>
+    </div>
+  </section>
+
+  <!-- BÊNÇÃO / PAIS -->
+  <section id="bencao">
+    <div class="inner">
+      <p class="sec-label reveal">o convite</p>
+      <h2 class="sec-title reveal">Com a bênção de <span class="it">Deus</span></h2>
+      <div class="divider reveal"><span class="ln"></span><span class="dot"></span><span class="ln r"></span></div>
+      <p class="rsvp-note reveal d1" style="margin-top:30px">e de seus pais, com alegria convidam você para a cerimônia de seu casamento.</p>
+    </div>
+  </section>
+
+  <!-- O GRANDE DIA -->
+  <section id="day">
+    <div class="inner">
+      <p class="sec-label reveal">o grande dia</p>
+      <h2 class="sec-title reveal">Celebrem <span class="it">conosco</span></h2>
+      <div class="divider reveal"><span class="ln"></span><span class="dot"></span><span class="ln r"></span></div>
+
+      <div class="quickfacts reveal d1">
+        <div class="qf"><p class="k">Data</p><p class="v" id="qfData"></p></div>
+        <div class="qf"><p class="k">Horário</p><p class="v" id="qfHora"></p></div>
+        <div class="qf"><p class="k">Local</p><p class="v" id="qfLocal"></p></div>
+      </div>
+
+      <!-- Cerimônia -->
+      <div class="place reveal">
+        <div class="place-art"><img src="fotos/local.jpg" alt="Imperial Pallace Buffet" onerror="this.closest('.place-art').remove()"></div>
+        <div class="place-body">
+          <span class="place-tag">Cerimônia</span>
+          <p class="place-time" id="ceriHora"></p>
+          <p class="place-name" id="ceriLocal"></p>
+          <p class="place-addr" id="ceriEnd"></p>
+          <a class="btn-line" id="mapCerimonia" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z" stroke="currentColor" stroke-width="1.3"/><circle cx="12" cy="9" r="2.4" stroke="currentColor" stroke-width="1.3"/></svg>
+            Ver no mapa
+          </a>
+        </div>
+      </div>
+
+      <div class="place-divider reveal"></div>
+
+      <!-- Recepção -->
+      <div class="place reveal">
+        <div class="place-body">
+          <span class="place-tag" style="background:var(--sage-deep)">Recepção</span>
+          <p class="place-time" style="color:var(--sage-deep)">Logo após a cerimônia</p>
+          <p class="place-name" id="recLocal"></p>
+          <p class="place-addr" id="recEnd"></p>
+          <a class="btn-line" id="mapRecepcao" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z" stroke="currentColor" stroke-width="1.3"/><circle cx="12" cy="9" r="2.4" stroke="currentColor" stroke-width="1.3"/></svg>
+            Ver no mapa
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTAGEM -->
+  <section id="countdown">
+    <div class="inner">
+      <p class="sec-label reveal">a contagem começou</p>
+      <h2 class="sec-title reveal">Falta <span class="it">pouco</span></h2>
+      <div class="cd-wrap reveal d1">
+        <div class="cd-unit"><span class="cd-num" id="cd-d">00</span><span class="cd-lbl">dias</span></div>
+        <div class="cd-unit"><span class="cd-num" id="cd-h">00</span><span class="cd-lbl">horas</span></div>
+        <div class="cd-unit"><span class="cd-num" id="cd-m">00</span><span class="cd-lbl">min</span></div>
+        <div class="cd-unit"><span class="cd-num" id="cd-s">00</span><span class="cd-lbl">seg</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MÚSICA -->
+  <section id="music">
+    <div class="inner">
+      <div class="music-row" id="musicRow" style="display:none">
+        <span class="bars"><i></i><i></i><i></i><i></i></span>
+        <span id="musicTxt">tocando agora</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- DRESS CODE -->
+  <section id="dress">
+    <div class="inner">
+      <p class="sec-label reveal">traje</p>
+      <h2 class="sec-title reveal">Dress <span class="it">code</span></h2>
+      <div class="divider reveal"><span class="ln"></span><span class="dot"></span><span class="ln r"></span></div>
+      <svg class="dress-icon reveal d1" viewBox="0 0 48 48" fill="none"><path d="M24 12a3 3 0 100-6 3 3 0 000 6zm0 0v3l-13 9c-2 1.4-1 4 1.4 4h23.2c2.4 0 3.4-2.6 1.4-4l-13-9" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M7 32h34" stroke="currentColor" stroke-width="1.3"/></svg>
+      <p class="dress-main reveal d1">Esporte fino</p>
+      <p class="dress-note reveal d2">Para celebrar esse dia tão especial com a gente, o traje escolhido é <strong style="color:var(--ink);font-weight:400">esporte fino</strong>. Pedimos apenas que evitem o <strong style="color:var(--ink);font-weight:400">branco</strong>, reservado à noiva, e o <strong style="color:var(--ink);font-weight:400">azul serenity</strong>, reservado ao cortejo.</p>
+
+      <div class="dress-cards reveal d2">
+        <div class="dcard">
+          <p class="dk">Damas 🌈</p>
+          <p class="dv">A cor será definida de acordo com o <strong>cortejo</strong>. Pedimos que evitem <strong>tons pastéis</strong> e apostem em <strong>cores vibrantes</strong>.</p>
+        </div>
+        <div class="dcard">
+          <p class="dk">Homens 🤵🏻‍♂️</p>
+          <p class="dv">Fiquem à vontade para escolher o traje, desde que dentro do <strong>dress code</strong>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MANUAL DOS CONVIDADOS -->
+  <section id="manual">
+    <div class="inner">
+      <p class="sec-label reveal">para não esquecer nada</p>
+      <h2 class="sec-title reveal">Manual dos <span class="it">convidados</span></h2>
+      <div class="divider reveal"><span class="ln"></span><span class="dot"></span><span class="ln r"></span></div>
+      <div class="man-list reveal d1" id="manList"></div>
+    </div>
+  </section>
+
+  <!-- PRESENTES -->
+  <section id="gifts">
+    <div class="inner">
+      <p class="sec-label reveal">presentes</p>
+      <h2 class="sec-title reveal">Lista de <span class="it">presentes</span></h2>
+      <div class="divider reveal"><span class="ln"></span><span class="dot"></span><span class="ln r"></span></div>
+      <p class="gift-note reveal d1" id="giftNote"></p>
+      <div class="gift-grid" id="giftGrid"></div>
+    </div>
+  </section>
+
+  <!-- RSVP -->
+  <section id="rsvp">
+    <div class="inner">
+      <p class="sec-label reveal">confirmação de presença</p>
+      <h2 class="sec-title reveal">Você <span class="it">vem?</span></h2>
+      <div class="divider reveal"><span class="ln"></span><span class="dot"></span><span class="ln r"></span></div>
+
+      <p class="rsvp-note reveal d1">Sua presença fará deste dia um momento ainda mais especial. Confirme pelo WhatsApp, com um toque.</p>
+      <a class="btn-fill reveal d2" id="confirmBtn" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.67-1.62-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.53.07-.8.38-.28.3-1.05 1.03-1.05 2.5s1.08 2.9 1.23 3.1c.15.2 2.12 3.24 5.14 4.54.72.31 1.28.5 1.71.63.72.23 1.38.2 1.9.12.58-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35z"/><path d="M12 2.2c-5.4 0-9.8 4.4-9.8 9.8 0 1.73.45 3.4 1.32 4.88L2.2 21.8l5.05-1.3A9.75 9.75 0 0012 21.8c5.4 0 9.8-4.4 9.8-9.8S17.4 2.2 12 2.2zm0 17.9c-1.6 0-3.16-.43-4.53-1.24l-.32-.19-3.36.86.9-3.28-.21-.34A8.08 8.08 0 013.9 12c0-4.47 3.63-8.1 8.1-8.1s8.1 3.63 8.1 8.1-3.63 8.1-8.1 8.1z"/></svg>
+        Confirmar no WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <img class="mono footer-mono" src="assets/monograma.png" alt="" onerror="this.remove()">
+    <p class="footer-names" id="footerNames"></p>
+    <p class="footer-date" id="footerDate"></p>
+    <p class="footer-note" id="footerNote"></p>
+  </footer>
+
+ </div><!-- /.wrap -->
+</div><!-- /#main -->
+
+<!-- áudio de reserva (usado só se o YouTube não carregar) -->
+<audio id="audio" loop preload="none" src="assets/musica.mp3"></audio>
+<div id="ytHost"><div id="ytPlayer"></div></div>
+
+<!-- modal do Pix (preenchido por JS) -->
+<div class="pixm" id="pixModal" hidden role="dialog" aria-modal="true" aria-labelledby="pixmNome">
+  <div class="pixm-bg" data-fechar></div>
+  <div class="pixm-card">
+    <button class="pixm-x" type="button" data-fechar aria-label="Fechar">&times;</button>
+    <p class="pixm-eyebrow">presente via pix</p>
+    <p class="pixm-nome" id="pixmNome"></p>
+    <p class="pixm-valor" id="pixmValor"></p>
+    <div class="pixm-code" id="pixmCode"></div>
+    <button class="pixm-copiar" id="pixmCopiar" type="button">
+      <svg viewBox="0 0 24 24" fill="none"><rect x="9" y="9" width="11" height="11" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M5 15H4.5A1.5 1.5 0 013 13.5v-9A1.5 1.5 0 014.5 3h9A1.5 1.5 0 0115 4.5V5" stroke="currentColor" stroke-width="1.4"/></svg>
+      <span>Copiar código Pix</span>
+    </button>
+    <p class="pixm-hint">Cole no app do seu banco em <strong>Pix copia e cola</strong>. O valor já vai preenchido.</p>
+    <div class="pixm-chave">
+      Ou use a chave Pix
+      <b id="pixmChave"></b>
+      <span id="pixmBanco"></span>
+    </div>
+  </div>
+</div>
+
+<!-- botão flutuante de música -->
+<div id="musicToggle" title="Nossa música">
+  <svg id="iconPlay" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+  <svg id="iconPause" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+  <span class="mt-label">Nossa música</span>
+</div>
+
+<script>
+/* ════════════════════════════════════════════════════════════
+   ⚙️  CONFIGURAÇÃO — edite somente este bloco
+   ════════════════════════════════════════════════════════════ */
+const CONFIG = {
+  noivos:    'Emilly & Lauriano',
+  cidade:    'Fortaleza · Ceará',
+
+  /* O horário exibido no convite é 15h30 (a cerimônia começa depois disso,
+     então ninguém chega atrasado). A contagem regressiva usa o mesmo horário. */
+  dataEvento:'2027-01-31T15:30:00',
+  dataTexto: '31 de Janeiro de 2027',
+  diaSemana: 'Domingo',
+  horaTexto: '15h30',
+
+  /* Local — cerimônia e recepção no mesmo endereço */
+  localNome: 'Imperial Pallace Buffet',
+  localEnd:  'Rua S, 540 — Mondubim<br>Fortaleza — CE',
+
+  /* Mapas. Se tiverem o link curto do Google Maps, cole em mapCerimonia
+     e mapRecepcao. Deixando vazio, o botão abre a busca pelo endereço. */
+  mapCerimonia: '',
+  mapRecepcao:  '',
+  mapBusca: 'https://www.google.com/maps/search/?api=1&query=' +
+            encodeURIComponent('Imperial Pallace Buffet, Rua S, 540, Mondubim, Fortaleza - CE'),
+
+  /* Música — link enviado pelos noivos (YouTube) */
+  musicaYoutube: 'https://youtu.be/E4a12Mxo3Kg',
+
+  /* ══ Pix — chave única, usada em todas as cotas ══
+     ⚠️  PREENCHER: enquanto estiver vazio, os cartões de presente
+     aparecem sem o botão de Pix (nada quebrado, só sem pagamento).
+
+     Escreva a chave no formato que o banco espera, senão o código
+     "copia e cola" não é aceito:
+       CPF      → só números          ex.: '12345678900'
+       Telefone → +55 e DDD           ex.: '+5585999998888'
+       E-mail   → minúsculo           ex.: 'emilly.lauriano@email.com'
+       Aleatória→ como o banco mostra (com os hífens)
+     A chave é exibida no convite exatamente como for escrita aqui. */
+  pixChave:     '',
+  pixTitular:   'Emilly e Lauriano',
+  pixBanco:     '',
+  pixCidade:    'FORTALEZA',
+
+  /* ══ Confirmação de presença — WhatsApp ══
+     ⚠️  PREENCHER com o número no formato 55 + DDD + número.
+     Vazio = a seção de confirmação some sozinha. */
+  whatsapp: '',
+
+  /* Frase de abertura */
+  versiculo:    'Querido e gentil leitor, há histórias que o destino tenta escrever. A nossa, porém, foi escrita pelas mãos do Senhor.',
+  versiculoRef: 'Emilly & Lauriano',
+};
+
+/* ════════════════════════════════════════════════════════════
+   📖  MANUAL DOS CONVIDADOS
+   ════════════════════════════════════════════════════════════ */
+const MANUAL = [
+  { icone:'relogio', titulo:'Horário de chegada', texto:
+    'A cerimônia está marcada para as <strong>15h30</strong>. Pedimos que cheguem com <strong>30 minutos de antecedência</strong> para acomodar-se com calma — a entrada da noiva é pontual e, depois que ela entrar, o acesso fica temporariamente fechado.' },
+  { icone:'traje', titulo:'Dress code · Esporte fino', texto:
+    'O traje escolhido é <strong>esporte fino</strong>. Evitem o <strong>branco</strong> (reservado à noiva) e o <strong>azul serenity</strong> (reservado ao cortejo).<br><br><strong>Damas:</strong> a cor será definida de acordo com o cortejo; evitem tons pastéis e apostem em cores vibrantes. 🌈<br><strong>Homens:</strong> fiquem à vontade para escolher o traje dentro do dress code. 🤵🏻‍♂️' },
+  { icone:'local', titulo:'Cerimônia e festa no mesmo lugar', texto:
+    'Tudo acontece no <strong>Imperial Pallace Buffet</strong> — Rua S, 540, Mondubim, Fortaleza/CE. Da cerimônia para a recepção é só atravessar o salão: ninguém precisa pegar a estrada de novo. 🚗' },
+  { icone:'convite', titulo:'Convite individual e intransferível', texto:
+    'Cada convite vale para as pessoas nomeadas nele. Nosso espaço é limitado e contamos com o carinho de vocês para respeitar a lista — assim conseguimos abraçar todo mundo com conforto. 🤍' },
+  { icone:'crianca', titulo:'E as crianças?', texto:
+    'Amamos os pequenos, mas a celebração será à noite e pensada para os adultos. Se puderem deixar as crianças descansando, vocês aproveitam a festa muito mais. 👶🏻' },
+  { icone:'foto', titulo:'Cerimônia sem celular', texto:
+    'Durante a cerimônia, pedimos que guardem os celulares: temos fotógrafo e filmagem cuidando de cada detalhe. Na festa, é <strong>fotografar à vontade</strong> e marcar a gente! 📸' },
+  { icone:'presente', titulo:'Presentes', texto:
+    'A maior alegria é a sua presença. Mas, se quiserem nos presentear, montamos uma <strong>lista de cotas</strong> aqui mesmo no convite — escolha a que mais tiver a sua cara (algumas são sérias, outras nem tanto 😂).' },
+  { icone:'confirma', titulo:'Confirme sua presença', texto:
+    'Confirmar ajuda demais no planejamento do buffet. Use o botão de <strong>confirmação no WhatsApp</strong> no fim desta página — de preferência assim que souber. 💌' },
+];
+
+/* ════════════════════════════════════════════════════════════
+   🎁  PRESENTES — cotas da lista
+   foto  → presentes/01.jpg ... presentes/15.jpg
+   valor → número em reais
+   ════════════════════════════════════════════════════════════ */
+const PRESENTES = [
+  { id:1,  nome:'Mounjaro da Noiva',                  sub:'Porque depois de organizar esse casamento, até a noiva merece um incentivo. 😂', foto:'presentes/01.jpg', valor:500 },
+  { id:2,  nome:'Aula: Como Gastar com Perfumes',     sub:'Aprenda com quem já domina a arte de gastar sem olhar o preço.',                 foto:'presentes/02.jpg', valor:450 },
+  { id:3,  nome:'Palpite Oficial: Menino ou Menina?', sub:'Dê seu palpite agora e finja que você sempre soube. 👶🏻',                        foto:'presentes/03.jpg', valor:250 },
+  { id:4,  nome:'Patrocínio MASTER da Lua de Mel',    sub:'Porque o amor é gratuito. A passagem aérea, infelizmente, não. ✈️',              foto:'presentes/04.jpg', valor:1500 },
+  { id:5,  nome:'Dia de Noiva — Pós-Casamento',       sub:'Porque ser noiva uma vez só é pouco para quem ama um salão. 💅🏻',                foto:'presentes/05.jpg', valor:600 },
+  { id:6,  nome:'Prioridade VIP na Fila do Buffet',   sub:'Fome não espera. Seu Pix também não. 🍽️😂',                                      foto:'presentes/06.jpg', valor:400 },
+  { id:7,  nome:'Cota Amigos Pra Sempre',             sub:'Uma contribuição para manter essa amizade até o infinito e além. 🥹🚀',           foto:'presentes/07.jpg', valor:350 },
+  { id:8,  nome:'Título de Parente Preferido',        sub:'Porque amor de família é importante, mas uma ajudinha também conta. 😂',          foto:'presentes/08.jpg', valor:500 },
+  { id:9,  nome:'Um Mimo, Porque Casar é Caro',       sub:'Não precisa de motivo. É só um mimo mesmo. 🥹💸',                                 foto:'presentes/09.jpg', valor:300 },
+  { id:10, nome:'Cota para 01 Ano de Faxina',         sub:'Porque a aliança é para sempre, mas a louça também parece ser. 🧹😂',             foto:'presentes/10.jpg', valor:700 },
+  { id:11, nome:'Brinde: Sobrevivemos à Organização', sub:'Foram meses de surtos. Agora é só brindar e fingir que valeu a pena. 🥂',         foto:'presentes/11.jpg', valor:350 },
+  { id:12, nome:'O Buquê é Seu',                      sub:'Invista na sua sorte. Vai que dessa vez sai você! 💐',                            foto:'presentes/12.jpg', valor:250 },
+  { id:13, nome:'Vale Netflix',                       sub:'Porque depois do casamento, o date oficial é sofá, cobertor e Netflix. 🍿',       foto:'presentes/13.jpg', valor:300 },
+  { id:14, nome:'Mão de Vaca',                        sub:'Você não queria gastar. A gente entende. Mas também não precisava sair zerado. 😂', foto:'presentes/14.jpg', valor:150 },
+  { id:15, nome:'Nome na Barra do Vestido',           sub:'Coloque seu nome na barra e aumente suas chances de ser a próxima. 💍👰🏻‍♀️',     foto:'presentes/15.jpg', valor:400 },
+];
+
+/* ════════════════════════════════════════════════════════════
+   A partir daqui é o funcionamento — não precisa mexer.
+   ════════════════════════════════════════════════════════════ */
+function txt(id,v){const e=document.getElementById(id);if(e)e.innerHTML=v;}
+function namesHTML(s){
+  const p=s.split(/\s*&\s*/);
+  return p.length===2 ? p[0]+'<span class="amp">&amp;</span>'+p[1] : s;
+}
+
+/* ─── Textos vindos do CONFIG ─── */
+const linkWhats = CONFIG.whatsapp
+  ? 'https://wa.me/'+CONFIG.whatsapp.replace(/\D/g,'')+'?text='+encodeURIComponent(
+      'Olá! Gostaria de confirmar minha presença no casamento de '+CONFIG.noivos+' 💍\n\nQuem vem com você?')
+  : '';
+
+txt('splashNames',namesHTML(CONFIG.noivos));
+txt('heroNames',namesHTML(CONFIG.noivos));
+txt('footerNames',CONFIG.noivos.replace(/&/,'<span class="amp">&amp;</span>'));
+txt('splashDate','31 · 01 · 2027');
+txt('heroSub',CONFIG.cidade);
+txt('footerDate',CONFIG.dataTexto);
+txt('footerNote','“'+CONFIG.versiculo+'”');
+txt('verseText','“'+CONFIG.versiculo+'”');
+txt('verseRef',CONFIG.versiculoRef);
+
+txt('qfData','31 de Janeiro<small>'+CONFIG.diaSemana+', 2027</small>');
+txt('qfHora',CONFIG.horaTexto+'<small>cerimônia</small>');
+txt('qfLocal','Fortaleza<small>Ceará</small>');
+
+txt('ceriHora','às '+CONFIG.horaTexto);
+txt('ceriLocal',CONFIG.localNome);
+txt('ceriEnd',CONFIG.localEnd);
+txt('recLocal',CONFIG.localNome);
+txt('recEnd',CONFIG.localEnd+'<br><em style="font-style:italic;color:var(--sage-deep)">no mesmo local da cerimônia</em>');
+
+document.getElementById('mapCerimonia').href = CONFIG.mapCerimonia || CONFIG.mapBusca;
+document.getElementById('mapRecepcao').href  = CONFIG.mapRecepcao  || CONFIG.mapBusca;
+document.title = CONFIG.noivos+' — Casamento';
+
+/* oculta a confirmação enquanto não houver WhatsApp cadastrado */
+(function(){
+  const rsvp=document.getElementById('rsvp');
+  if(linkWhats){ document.getElementById('confirmBtn').href=linkWhats; }
+  else if(rsvp){ rsvp.style.display='none'; }
+})();
+
+/* ─── MANUAL DOS CONVIDADOS ─── */
+(function renderManual(){
+  const lista=document.getElementById('manList');
+  if(!lista) return;
+  const ic={
+    relogio:'<circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.3"/><path d="M12 7v5l3.2 2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>',
+    traje:'<path d="M9 3l3 3 3-3 4 2.5V21H5V5.5L9 3z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M12 6v8" stroke="currentColor" stroke-width="1.3"/>',
+    local:'<path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z" stroke="currentColor" stroke-width="1.3"/><circle cx="12" cy="9" r="2.4" stroke="currentColor" stroke-width="1.3"/>',
+    convite:'<rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.3"/><path d="M3 8l9 6 9-6" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>',
+    crianca:'<circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.3"/><path d="M5 21c0-3.9 3.1-7 7-7s7 3.1 7 7" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>',
+    foto:'<rect x="3" y="7" width="18" height="13" rx="2.5" stroke="currentColor" stroke-width="1.3"/><circle cx="12" cy="13.5" r="3.4" stroke="currentColor" stroke-width="1.3"/><path d="M8.5 7l1.3-2.2h4.4L15.5 7" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>',
+    presente:'<rect x="3" y="8" width="18" height="12" rx="1.6" stroke="currentColor" stroke-width="1.3"/><path d="M3 12h18M12 8v12" stroke="currentColor" stroke-width="1.3"/><path d="M12 8S10.4 4 8.4 4a2 2 0 100 4M12 8s1.6-4 3.6-4a2 2 0 110 4" stroke="currentColor" stroke-width="1.3"/>',
+    confirma:'<path d="M4 7.5A2.5 2.5 0 016.5 5h11A2.5 2.5 0 0120 7.5v9a2.5 2.5 0 01-2.5 2.5h-11A2.5 2.5 0 014 16.5v-9z" stroke="currentColor" stroke-width="1.3"/><path d="M8.2 12.2l2.4 2.4 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>',
+  };
+  /* o item de confirmação só aparece quando há WhatsApp cadastrado */
+  const itens=MANUAL.filter(m=>m.icone!=='confirma'||linkWhats);
+  lista.innerHTML=itens.map(m=>`
+    <div class="man-item">
+      <button class="man-head" type="button">
+        <svg class="mi" viewBox="0 0 24 24" fill="none">${ic[m.icone]||ic.convite}</svg>
+        <span class="mt">${m.titulo}</span>
+        <svg class="mc" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
+      <div class="man-body"><p>${m.texto}</p></div>
+    </div>`).join('');
+
+  lista.addEventListener('click',e=>{
+    const head=e.target.closest('.man-head');
+    if(!head) return;
+    const item=head.parentElement;
+    const body=item.querySelector('.man-body');
+    const aberto=item.classList.contains('open');
+    lista.querySelectorAll('.man-item.open').forEach(o=>{
+      o.classList.remove('open');
+      o.querySelector('.man-body').style.maxHeight='0px';
+    });
+    if(!aberto){
+      item.classList.add('open');
+      body.style.maxHeight=body.scrollHeight+'px';
+    }
+  });
+})();
+
+/* ═══════════ PIX — código "copia e cola" (BR Code / Banco Central) ═══════════ */
+function pixCRC16(s){
+  let c=0xFFFF;
+  for(let i=0;i<s.length;i++){
+    c^=s.charCodeAt(i)<<8;
+    for(let j=0;j<8;j++) c=(c&0x8000)?((c<<1)^0x1021)&0xFFFF:(c<<1)&0xFFFF;
+  }
+  return c.toString(16).toUpperCase().padStart(4,'0');
+}
+function pixCode(valor){
+  const tlv=(id,v)=>id+String(v.length).padStart(2,'0')+v;
+  const ascii=s=>s.normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^\x20-\x7E]/g,'').toUpperCase();
+  let p='';
+  p+=tlv('00','01');
+  p+=tlv('26',tlv('00','br.gov.bcb.pix')+tlv('01',CONFIG.pixChave));
+  p+=tlv('52','0000');
+  p+=tlv('53','986');
+  if(valor) p+=tlv('54',Number(valor).toFixed(2));
+  p+=tlv('58','BR');
+  p+=tlv('59',ascii(CONFIG.pixTitular).slice(0,25));
+  p+=tlv('60',ascii(CONFIG.pixCidade).slice(0,15));
+  p+=tlv('62',tlv('05','***'));
+  p+='6304';
+  return p+pixCRC16(p);
+}
+/* a chave aparece exatamente como foi escrita no CONFIG —
+   assim não corremos o risco de formatar um telefone como se fosse CPF */
+function formatarChave(c){ return String(c||'').trim(); }
+
+/* ─── Modal do Pix ─── */
+const pixModal=document.getElementById('pixModal');
+function abrirPix(id){
+  const g=PRESENTES.find(p=>p.id===id);
+  if(!g||!pixModal||!CONFIG.pixChave) return;
+  const codigo=pixCode(g.valor);
+  document.getElementById('pixmNome').textContent=g.nome;
+  document.getElementById('pixmValor').textContent=
+    Number(g.valor).toLocaleString('pt-BR',{style:'currency',currency:'BRL',minimumFractionDigits:0,maximumFractionDigits:0});
+  document.getElementById('pixmCode').textContent=codigo;
+  document.getElementById('pixmChave').textContent=formatarChave(CONFIG.pixChave);
+  document.getElementById('pixmBanco').textContent=[CONFIG.pixBanco,CONFIG.pixTitular].filter(Boolean).join(' · ');
+  pixModal.dataset.codigo=codigo;
+  pixModal.hidden=false;
+  document.body.style.overflow='hidden';
+}
+function fecharPix(){
+  if(!pixModal) return;
+  pixModal.hidden=true;
+  document.body.style.overflow='';
+  const b=document.getElementById('pixmCopiar');
+  b.classList.remove('copiado');
+  b.querySelector('span').textContent='Copiar código Pix';
+}
+if(pixModal){
+  pixModal.addEventListener('click',e=>{ if(e.target.closest('[data-fechar]')) fecharPix(); });
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&!pixModal.hidden) fecharPix(); });
+  document.getElementById('pixmCopiar').addEventListener('click',async function(){
+    const codigo=pixModal.dataset.codigo||'';
+    const rotulo=this.querySelector('span');
+    let ok=false;
+    try{
+      await navigator.clipboard.writeText(codigo);
+      ok=true;
+    }catch(err){
+      try{
+        const ta=document.createElement('textarea');
+        ta.value=codigo; ta.style.position='fixed'; ta.style.opacity='0';
+        document.body.appendChild(ta); ta.select();
+        ok=document.execCommand('copy');
+        document.body.removeChild(ta);
+      }catch(e2){ ok=false; }
+    }
+    this.classList.toggle('copiado',ok);
+    rotulo.textContent=ok?'Código copiado!':'Copie o código acima';
+    setTimeout(()=>{
+      this.classList.remove('copiado');
+      rotulo.textContent='Copiar código Pix';
+    },2600);
+  });
+}
+
+/* ─── Galeria de presentes ─── */
+(function renderPresentes(){
+  const grid=document.getElementById('giftGrid');
+  if(!grid) return;
+  const temPix=!!CONFIG.pixChave;
+
+  txt('giftNote', temPix
+    ? 'Nossa maior alegria é a sua presença. Mas, se quiserem nos presentear, escolham uma cota com carinho — é só tocar em <strong style="color:var(--blue-deep);font-weight:400">Pix</strong> que o código já vem com o valor preenchido.'
+    : 'Nossa maior alegria é a sua presença. Mas, se quiserem nos presentear, escolham uma cota com carinho e falem com a gente — algumas são sérias, outras nem tanto. 😂');
+
+  const svgPix='<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5.283 18.36a3.505 3.505 0 0 0 2.493-1.032l3.6-3.6a.684.684 0 0 1 .946 0l3.613 3.613a3.504 3.504 0 0 0 2.493 1.032h.71l-4.56 4.56a3.647 3.647 0 0 1-5.156 0L4.85 18.36ZM18.428 5.627a3.505 3.505 0 0 0-2.493 1.032l-3.613 3.614a.67.67 0 0 1-.946 0l-3.6-3.6A3.505 3.505 0 0 0 5.283 5.64h-.434l4.575-4.574a3.646 3.646 0 0 1 5.156 0l4.56 4.56ZM1.068 9.401 3.79 6.68h1.492a2.483 2.483 0 0 1 1.744.723l3.6 3.6a1.73 1.73 0 0 0 2.443 0l3.614-3.613a2.482 2.482 0 0 1 1.744-.723h1.767l2.737 2.736a3.646 3.646 0 0 1 0 5.156l-2.737 2.737h-1.767a2.482 2.482 0 0 1-1.744-.723l-3.613-3.613a1.77 1.77 0 0 0-2.444 0l-3.6 3.6a2.483 2.483 0 0 1-1.744.723H3.79l-2.722-2.722a3.646 3.646 0 0 1 0-5.156Z"/></svg>';
+  const esc=s=>String(s||'').replace(/"/g,'&quot;');
+  const brl=v=>Number(v).toLocaleString('pt-BR',{style:'currency',currency:'BRL',minimumFractionDigits:0,maximumFractionDigits:0});
+
+  grid.innerHTML=PRESENTES.map((g,i)=>{
+    const n=String(i+1).padStart(2,'0');
+    const val=g.valor?`<p class="gift-val">${brl(g.valor)}</p>`:'';
+    const btns=temPix
+      ? `<div class="gift-btns"><button class="gp" type="button" data-pix="${g.id}">${svgPix}<span>Pix</span></button></div>`
+      : '';
+    return `<div class="gift-card reveal">
+      <div class="gift-photo"><span class="gift-num">${n}</span><img loading="lazy" src="${esc(g.foto)}" alt="${esc(g.nome)}" onerror="this.closest('.gift-photo').classList.add('sem-foto');this.remove()"></div>
+      <div class="gift-body">
+        <p class="gift-name">${g.nome}</p>
+        <p class="gift-sub">${g.sub||''}</p>
+        ${val}
+        ${btns}
+      </div>
+    </div>`;
+  }).join('');
+
+  grid.addEventListener('click',e=>{
+    const pix=e.target.closest('button[data-pix]');
+    if(pix) abrirPix(Number(pix.dataset.pix));
+  });
+})();
+
+/* ─── MÚSICA (YouTube, com mp3 como reserva) ─── */
+const Musica=(function(){
+  const audio=document.getElementById('audio');
+  const toggle=document.getElementById('musicToggle');
+  const row=document.getElementById('musicRow');
+  let yt=null, ytPronto=false, usandoYT=false;
+
+  function idDoLink(url){
+    const m=String(url||'').match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([A-Za-z0-9_-]{11})/);
+    return m?m[1]:'';
+  }
+  function icone(tocando){
+    document.getElementById('iconPlay').style.display = tocando?'none':'block';
+    document.getElementById('iconPause').style.display= tocando?'block':'none';
+    if(row) row.style.display = tocando?'inline-flex':'none';
+  }
+
+  /* API do YouTube */
+  const videoId=idDoLink(CONFIG.musicaYoutube);
+  if(videoId){
+    const s=document.createElement('script');
+    s.src='https://www.youtube.com/iframe_api';
+    document.head.appendChild(s);
+    window.onYouTubeIframeAPIReady=function(){
+      yt=new YT.Player('ytPlayer',{
+        videoId:videoId,
+        playerVars:{autoplay:0,controls:0,loop:1,playlist:videoId,playsinline:1,modestbranding:1,rel:0},
+        events:{
+          onReady:()=>{ ytPronto=true; try{yt.setVolume(70);}catch(e){} },
+          onStateChange:ev=>{
+            if(ev.data===YT.PlayerState.PLAYING){usandoYT=true;icone(true);}
+            if(ev.data===YT.PlayerState.PAUSED||ev.data===YT.PlayerState.ENDED)icone(false);
+          },
+          onError:()=>{ ytPronto=false; tocarMp3(); }
+        }
+      });
+    };
+  }
+
+  audio.volume=0.85;
+  audio.addEventListener('play',()=>{ if(!usandoYT) icone(true); });
+  audio.addEventListener('pause',()=>{ if(!usandoYT) icone(false); });
+
+  function tocarMp3(){ const p=audio.play(); if(p&&p.catch)p.catch(()=>{}); }
+  function tocando(){
+    if(usandoYT && yt && yt.getPlayerState) return yt.getPlayerState()===YT.PlayerState.PLAYING;
+    return !audio.paused;
+  }
+  function tocar(){
+    if(ytPronto && yt){ try{ yt.playVideo(); return; }catch(e){} }
+    tocarMp3();
+  }
+  function pausar(){
+    if(usandoYT && yt){ try{ yt.pauseVideo(); }catch(e){} }
+    audio.pause();
+    icone(false);
+  }
+
+  toggle.addEventListener('click',()=>{ tocando()?pausar():tocar(); });
+
+  return { iniciar(){ tocar(); setTimeout(()=>{ if(!tocando()) tocar(); },900); },
+           mostrarBotao(){ toggle.style.display='flex'; } };
+})();
+
+/* ─── SPLASH ─── */
+document.getElementById('splash').addEventListener('click',function(){
+  Musica.iniciar();
+  this.classList.add('hide');
+  setTimeout(()=>{
+    this.style.display='none';
+    document.getElementById('main').classList.add('visible');
+    Musica.mostrarBotao();
+    initReveal(); startCountdown();
+  },950);
+});
+
+/* ─── REVEAL ─── */
+function initReveal(){
+  const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+}
+
+/* ─── CONTAGEM REGRESSIVA ─── */
+function startCountdown(){
+  const target=new Date(CONFIG.dataEvento);const pad=n=>String(n).padStart(2,'0');
+  function upd(){
+    const diff=target-new Date();
+    if(diff<=0){
+      document.querySelector('#countdown .cd-wrap').innerHTML='<p style="font-family:Bodoni Moda,serif;font-style:italic;font-size:26px;color:var(--blue);width:100%;text-align:center">É hoje! Que Deus abençoe este dia</p>';
+      return;
+    }
+    document.getElementById('cd-d').textContent=pad(Math.floor(diff/864e5));
+    document.getElementById('cd-h').textContent=pad(Math.floor(diff%864e5/36e5));
+    document.getElementById('cd-m').textContent=pad(Math.floor(diff%36e5/6e4));
+    document.getElementById('cd-s').textContent=pad(Math.floor(diff%6e4/1e3));
+  }
+  upd();setInterval(upd,1000);
+}
+</script>
+</body>
+</html>
