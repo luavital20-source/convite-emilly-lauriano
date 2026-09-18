@@ -584,19 +584,19 @@ const CONFIG = {
   musicaYoutube: 'https://youtu.be/E4a12Mxo3Kg',
 
   /* ══ Pix — chave única, usada em todas as cotas ══
-     ⚠️  PREENCHER: enquanto estiver vazio, os cartões de presente
-     aparecem sem o botão de Pix (nada quebrado, só sem pagamento).
+     A chave é um telefone e vai em formato internacional (+55 + DDD + número),
+     que é como o código "copia e cola" precisa dela para o banco aceitar.
+     No convite ela aparece formatada: (85) 98133-1368.
 
-     Escreva a chave no formato que o banco espera, senão o código
-     "copia e cola" não é aceito:
+     Se um dia trocarem a chave, use o formato que o banco espera:
        CPF      → só números          ex.: '12345678900'
-       Telefone → +55 e DDD           ex.: '+5585999998888'
+       Telefone → +55 e DDD           ex.: '+5585981331368'
        E-mail   → minúsculo           ex.: 'emilly.lauriano@email.com'
        Aleatória→ como o banco mostra (com os hífens)
-     A chave é exibida no convite exatamente como for escrita aqui. */
-  pixChave:     '',
+     Vazio = os cartões de presente ficam só com o botão "Cartão". */
+  pixChave:     '+5585981331368',
   pixTitular:   'Emilly e Lauriano',
-  pixBanco:     '',
+  pixBanco:     '',   /* opcional: 'Banco Itaú', 'Nubank'… aparece abaixo da chave */
   pixCidade:    'FORTALEZA',
 
   /* ══ Cartão — InfinitePay ══
@@ -613,9 +613,9 @@ const CONFIG = {
   infinitePayFormatoValor: 'reais',
 
   /* ══ Confirmação de presença — WhatsApp ══
-     ⚠️  PREENCHER com o número no formato 55 + DDD + número.
+     Número no formato 55 + DDD + número.
      Vazio = a seção de confirmação some sozinha. */
-  whatsapp: '',
+  whatsapp: '5585982166345',
 
   /* Frase de abertura */
   versiculo:    'Querido e gentil leitor, há histórias que o destino tenta escrever. A nossa, porém, foi escrita pelas mãos do Senhor.',
@@ -790,9 +790,15 @@ function pixCode(valor){
   p+='6304';
   return p+pixCRC16(p);
 }
-/* a chave aparece exatamente como foi escrita no CONFIG —
-   assim não corremos o risco de formatar um telefone como se fosse CPF */
-function formatarChave(c){ return String(c||'').trim(); }
+/* Exibe a chave de um jeito legível para o convidado. Só reformata quando a
+   chave é um telefone em formato internacional (+55 + DDD + número), que é
+   inconfundível — qualquer outra chave aparece exatamente como foi escrita,
+   sem risco de formatar um CPF como telefone ou vice-versa. */
+function formatarChave(c){
+  const s=String(c||'').trim();
+  const m=s.match(/^\+55(\d{2})(\d{4,5})(\d{4})$/);
+  return m ? '('+m[1]+') '+m[2]+'-'+m[3] : s;
+}
 
 /* ─── Modal do Pix ─── */
 const pixModal=document.getElementById('pixModal');

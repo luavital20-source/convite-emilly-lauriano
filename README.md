@@ -47,10 +47,10 @@ Para trocar uma foto depois, basta substituir o arquivo mantendo o mesmo nome
 
 ---
 
-## 💳 Pagamentos e o que falta preencher
+## 💳 Pagamentos e contatos
 
-Tudo o que precisa ser editado está no topo do `<script>`, no bloco `CONFIG`
-do `index.html`:
+Está tudo configurado no bloco `CONFIG`, no topo do `<script>` do `index.html`.
+Falta apenas **testar um link de cartão** (item 1) antes de enviar o convite:
 
 1. **`infinitePayTag`** — ✅ já preenchida com `rumadevideos` (a InfiniteTag da
    conta **RUMA DE VIDEOS**, Conta Lojista CNPJ). O botão **Cartão** de cada cota
@@ -78,18 +78,22 @@ do `index.html`:
    O `linkCartao` tem prioridade sobre o link automático. Dá para fazer só em
    algumas cotas — as que não tiverem continuam usando o link automático.
 
-2. **`pixChave`** — a chave Pix que vai receber os presentes.
-   Enquanto estiver vazia, os cartões aparecem só com o botão **Cartão**
-   (o Pix é opcional — o cartão já funciona sozinho).
-   Ao preencher, cada cota gera sozinha o código *Pix copia e cola* já com o valor.
-   Escreva a chave no formato do banco: CPF só com números (`'12345678900'`),
-   telefone com `+55` e DDD (`'+5585999998888'`), e-mail em minúsculo, ou a
-   chave aleatória como o banco mostra. Ela aparece no convite exatamente assim.
-   Preencha também `pixBanco` (ex.: `'Banco Itaú'`) e confira `pixTitular`.
+2. **`pixChave`** — ✅ já preenchida: `+5585981331368`.
+   Cada cota gera sozinha o código *Pix copia e cola* com o valor daquela cota,
+   e o convidado copia com um toque.
 
-3. **`whatsapp`** — o número que vai receber as confirmações,
-   no formato `55` + DDD + número (ex.: `'5585999999999'`).
-   Enquanto estiver vazio, a seção *Confirmação de presença* fica escondida.
+   A chave é um telefone, então fica gravada em **formato internacional**
+   (`+55` + DDD + número) — é assim que o código precisa dela para o banco
+   aceitar. No convite ela aparece formatada: **(85) 98133-1368**.
+
+   Dois campos opcionais ao lado dela:
+   - `pixBanco` — ex.: `'Banco Itaú'`. Aparece embaixo da chave; vazio, some.
+   - `pixTitular` — hoje `'Emilly e Lauriano'`. É o nome que vai dentro do
+     código Pix. Vale conferir se bate com o **titular real da conta** da chave;
+     alguns bancos mostram esse nome na hora do pagamento.
+
+3. **`whatsapp`** — ✅ já preenchido: `5585982166345`.
+   O botão *Confirmar no WhatsApp* abre a conversa com a mensagem pronta.
 
 4. **`mapCerimonia` / `mapRecepcao`** — *(opcional)* o link curto do Google Maps
    do buffet. Se ficarem vazios, o botão "Ver no mapa" abre a busca pelo
@@ -110,8 +114,10 @@ do `index.html`:
   escrever. A nossa, porém, foi escrita pelas mãos do Senhor."
 - **Dress code:** esporte fino, com orientações para damas e homens
 - **Manual dos convidados:** 8 tópicos em lista sanfonada
-- **Lista de presentes:** 15 cotas, com pagamento no cartão via InfinitePay
-  (crédito parcelado, Google Pay e Apple Pay) — sem precisar de servidor
+- **Lista de presentes:** 15 cotas, com **Pix** (código copia e cola gerado na
+  hora, já com o valor) e **cartão** via InfinitePay (crédito parcelado, Google
+  Pay e Apple Pay) — tudo sem precisar de servidor
+- **Confirmação de presença:** WhatsApp (85) 98216-6345, com mensagem pronta
 
 ### As 15 cotas
 
