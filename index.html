@@ -142,6 +142,7 @@
   }
   .place-body{text-align:center;margin-top:22px;}
   .place-time{font-family:'Bodoni Moda',serif;font-style:italic;font-size:24px;color:var(--blue);}
+  .place-hint{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--sage-deep);margin-top:7px;text-indent:.14em;}
   .place-name{font-family:'Bodoni Moda',serif;font-size:23px;color:var(--ink);margin-top:8px;line-height:1.25;}
   .place-addr{font-size:13px;line-height:1.7;color:var(--ink-soft);margin-top:12px;max-width:360px;margin-left:auto;margin-right:auto;}
   .btn-line{
@@ -400,6 +401,7 @@
         <div class="place-body">
           <span class="place-tag">Cerimônia</span>
           <p class="place-time" id="ceriHora"></p>
+          <p class="place-hint" id="ceriInicio"></p>
           <p class="place-name" id="ceriLocal"></p>
           <p class="place-addr" id="ceriEnd"></p>
           <a class="btn-line" id="mapCerimonia" target="_blank" rel="noopener">
@@ -459,7 +461,7 @@
       <div class="divider reveal"><span class="ln"></span><span class="dot"></span><span class="ln r"></span></div>
       <svg class="dress-icon reveal d1" viewBox="0 0 48 48" fill="none"><path d="M24 12a3 3 0 100-6 3 3 0 000 6zm0 0v3l-13 9c-2 1.4-1 4 1.4 4h23.2c2.4 0 3.4-2.6 1.4-4l-13-9" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M7 32h34" stroke="currentColor" stroke-width="1.3"/></svg>
       <p class="dress-main reveal d1">Esporte fino</p>
-      <p class="dress-note reveal d2">Para celebrar esse dia tão especial com a gente, o traje escolhido é <strong style="color:var(--ink);font-weight:400">esporte fino</strong>. Pedimos apenas que evitem o <strong style="color:var(--ink);font-weight:400">branco</strong>, reservado à noiva, e o <strong style="color:var(--ink);font-weight:400">azul serenity</strong>, reservado ao cortejo.</p>
+      <p class="dress-note reveal d2">Para celebrar esse dia tão especial com a gente, o traje escolhido é <strong style="color:var(--ink);font-weight:400">esporte fino</strong>. Pedimos apenas que evitem o <strong style="color:var(--ink);font-weight:400">branco</strong>, reservado à noiva, e os <strong style="color:var(--ink);font-weight:400">tons pastéis</strong>, reservados ao cortejo.</p>
 
       <div class="dress-cards reveal d2">
         <div class="dcard">
@@ -562,12 +564,14 @@ const CONFIG = {
   noivos:    'Emilly & Lauriano',
   cidade:    'Fortaleza · Ceará',
 
-  /* O horário exibido no convite é 15h30 (a cerimônia começa depois disso,
-     então ninguém chega atrasado). A contagem regressiva usa o mesmo horário. */
+  /* Dois horários: o convite é para as 15h30 e a cerimônia começa às 16h.
+     A meia hora de folga é para todo mundo chegar e se acomodar com calma.
+     A contagem regressiva usa o horário do convite. */
   dataEvento:'2027-01-31T15:30:00',
   dataTexto: '31 de Janeiro de 2027',
   diaSemana: 'Domingo',
-  horaTexto: '15h30',
+  horaConvite:   '15h30',
+  horaCerimonia: '16h',
 
   /* Local — cerimônia e recepção no mesmo endereço */
   localNome: 'Imperial Pallace Buffet',
@@ -627,15 +631,15 @@ const CONFIG = {
    ════════════════════════════════════════════════════════════ */
 const MANUAL = [
   { icone:'relogio', titulo:'Horário de chegada', texto:
-    'A cerimônia está marcada para as <strong>15h30</strong>. Pedimos que cheguem com <strong>30 minutos de antecedência</strong> para acomodar-se com calma — a entrada da noiva é pontual e, depois que ela entrar, o acesso fica temporariamente fechado.' },
+    'O convite é para as <strong>15h30</strong> e a <strong>cerimônia começa às 16h</strong>. Essa meia hora é justamente para todo mundo chegar e se acomodar com calma — a entrada da noiva é pontual e, depois que ela entrar, o acesso fica temporariamente fechado. 🕞' },
   { icone:'traje', titulo:'Dress code · Esporte fino', texto:
-    'O traje escolhido é <strong>esporte fino</strong>. Evitem o <strong>branco</strong> (reservado à noiva) e o <strong>azul serenity</strong> (reservado ao cortejo).<br><br><strong>Damas:</strong> a cor será definida de acordo com o cortejo; evitem tons pastéis e apostem em cores vibrantes. 🌈<br><strong>Homens:</strong> fiquem à vontade para escolher o traje dentro do dress code. 🤵🏻‍♂️' },
+    'O traje escolhido é <strong>esporte fino</strong>. Evitem o <strong>branco</strong> (reservado à noiva) e os <strong>tons pastéis</strong> (reservados ao cortejo).<br><br><strong>Damas:</strong> a cor será definida de acordo com o cortejo; evitem tons pastéis e apostem em cores vibrantes. 🌈<br><strong>Homens:</strong> fiquem à vontade para escolher o traje dentro do dress code. 🤵🏻‍♂️' },
   { icone:'local', titulo:'Cerimônia e festa no mesmo lugar', texto:
     'Tudo acontece no <strong>Imperial Pallace Buffet</strong> — Rua S, 540, Mondubim, Fortaleza/CE. Da cerimônia para a recepção é só atravessar o salão: ninguém precisa pegar a estrada de novo. 🚗' },
   { icone:'convite', titulo:'Convite individual e intransferível', texto:
     'Cada convite vale para as pessoas nomeadas nele. Nosso espaço é limitado e contamos com o carinho de vocês para respeitar a lista — assim conseguimos abraçar todo mundo com conforto. 🤍' },
   { icone:'crianca', titulo:'E as crianças?', texto:
-    'Amamos os pequenos, mas a celebração será à noite e pensada para os adultos. Se puderem deixar as crianças descansando, vocês aproveitam a festa muito mais. 👶🏻' },
+    'Fica totalmente a seu critério. Se quiser curtir a festa com tranquilidade, pode deixar as crianças em casa — sem problema nenhum. E se quiser trazer, elas são muito bem-vindas: vamos ter um <strong>espacinho reservado só para elas</strong>, com animação. 👶🏻' },
   { icone:'foto', titulo:'Cerimônia sem celular', texto:
     'Durante a cerimônia, pedimos que guardem os celulares: temos fotógrafo e filmagem cuidando de cada detalhe. Na festa, é <strong>fotografar à vontade</strong> e marcar a gente! 📸' },
   { icone:'presente', titulo:'Presentes', texto:
@@ -702,10 +706,11 @@ txt('verseText','“'+CONFIG.versiculo+'”');
 txt('verseRef',CONFIG.versiculoRef);
 
 txt('qfData','31 de Janeiro<small>'+CONFIG.diaSemana+', 2027</small>');
-txt('qfHora',CONFIG.horaTexto+'<small>cerimônia</small>');
+txt('qfHora',CONFIG.horaConvite+'<small>cerimônia às '+CONFIG.horaCerimonia+'</small>');
 txt('qfLocal','Fortaleza<small>Ceará</small>');
 
-txt('ceriHora','às '+CONFIG.horaTexto);
+txt('ceriHora','às '+CONFIG.horaConvite);
+txt('ceriInicio','início da cerimônia às '+CONFIG.horaCerimonia);
 txt('ceriLocal',CONFIG.localNome);
 txt('ceriEnd',CONFIG.localEnd);
 txt('recLocal',CONFIG.localNome);

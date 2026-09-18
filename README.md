@@ -105,14 +105,16 @@ Falta apenas **testar um link de cartão** (item 1) antes de enviar o convite:
 
 - **Noivos:** Emilly & Lauriano
 - **Data:** 31 de janeiro de 2027 (domingo)
-- **Horário exibido no convite:** 15h30 *(a contagem regressiva usa o mesmo horário)*
+- **Horários:** convite às **15h30**, cerimônia começa às **16h**
+  *(a contagem regressiva usa o horário do convite)*
 - **Local:** Imperial Pallace Buffet — Rua S, 540, Mondubim, Fortaleza/CE
   *(cerimônia e recepção no mesmo endereço)*
 - **Paleta:** azul serenity
 - **Música:** https://youtu.be/E4a12Mxo3Kg *(toca ao abrir o convite, com botão de pausar)*
 - **Frase de abertura:** "Querido e gentil leitor, há histórias que o destino tenta
   escrever. A nossa, porém, foi escrita pelas mãos do Senhor."
-- **Dress code:** esporte fino, com orientações para damas e homens
+- **Dress code:** esporte fino — evitar branco (noiva) e tons pastéis (cortejo),
+  com orientações para damas e homens
 - **Manual dos convidados:** 8 tópicos em lista sanfonada
 - **Lista de presentes:** 15 cotas, com **Pix** (código copia e cola gerado na
   hora, já com o valor) e **cartão** via InfinitePay (crédito parcelado, Google
