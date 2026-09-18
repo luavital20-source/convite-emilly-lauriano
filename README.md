@@ -156,9 +156,26 @@ ele é usado automaticamente como reserva caso o vídeo não carregue.
 
 ---
 
-## 🌐 Publicando o convite
+## 🌐 Publicando o convite (GitHub Pages)
 
-O jeito mais simples é o **GitHub Pages**:
-*Settings → Pages → Source: Deploy from a branch → branch `main`, pasta `/ (root)`*.
-Em poucos minutos o convite fica no ar em
-`https://<usuario>.github.io/convite-emilly-lauriano/`.
+O convite é publicado pelo próprio GitHub, que **atualiza sozinho** a cada
+alteração enviada para a branch `main`. Basta ligar uma vez:
+
+1. Abra <https://github.com/luavital20-source/convite-emilly-lauriano/settings/pages>
+2. Em **Build and deployment** → **Source**, escolha **Deploy from a branch**
+3. Em **Branch**, escolha `main` e a pasta `/ (root)`
+4. Clique em **Save**
+
+Em 1 ou 2 minutos o convite fica no ar em:
+
+**https://luavital20-source.github.io/convite-emilly-lauriano/**
+
+Daí em diante não é preciso mexer em mais nada: toda mudança enviada para a
+`main` vai para o ar em cerca de um minuto, sozinha.
+
+> O arquivo `.nojekyll` na raiz existe só para o GitHub servir os arquivos
+> exatamente como estão, sem tentar processá-los. Não mexa nele.
+
+> **Se o convite não atualizar na hora**, quase sempre é cache do navegador:
+> recarregue com `Ctrl+Shift+R` (ou `Cmd+Shift+R` no Mac). No celular, abra
+> numa aba anônima para conferir.
