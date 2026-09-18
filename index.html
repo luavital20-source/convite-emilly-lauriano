@@ -101,7 +101,7 @@
     -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 50%,rgba(0,0,0,.55) 73%,rgba(0,0,0,0) 95%);
             mask-image:linear-gradient(to bottom,#000 0%,#000 50%,rgba(0,0,0,.55) 73%,rgba(0,0,0,0) 95%);
   }
-  .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;filter:saturate(.9) contrast(.97);}
+  .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 0;filter:saturate(.9) contrast(.97);}
   .hero-photo::before{
     content:'';position:absolute;inset:0;z-index:1;
     background:linear-gradient(180deg, rgba(117,137,176,.08) 0%, rgba(117,137,176,0) 24%, rgba(194,203,190,.05) 100%);
@@ -328,9 +328,17 @@
   @keyframes eq{0%,100%{height:4px}50%{height:14px}}
 
   @media(max-width:380px){.inner{padding:0 24px}.qf .v{font-size:17px}}
-  /* telas largas: a foto (retrato) recorta na vertical, então subimos o
-     enquadramento para os rostos do casal não ficarem cortados no topo */
-  @media(min-width:760px){.hero-photo{height:82vh;min-height:560px}.hero-photo img{object-position:50% 12%;}}
+  /* A foto de capa é um retrato. Numa tela larga, esticá-la de ponta a ponta
+     deixaria de fora quase dois terços da altura — sobrariam só os cabelos.
+     Então, no computador, ela deixa de ocupar a largura toda e volta a ter
+     proporção de retrato, centralizada junto com o resto do convite. */
+  @media(min-width:760px){
+    .hero-photo{
+      width:100%;left:auto;right:auto;margin-left:auto;margin-right:auto;
+      max-width:520px;height:auto;min-height:0;max-height:none;aspect-ratio:4/5;
+    }
+    .hero-photo img{object-position:50% 0;}
+  }
 </style>
 </head>
 <body>
